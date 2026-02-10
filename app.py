@@ -15,6 +15,7 @@ from sklearn.metrics import (
 
 # Load artifacts
 scaler = joblib.load('model/scaler.pkl')
+TEST_DATA_PATH = "artifacts/test_data.csv"
 MODELS = {
     "Logistic Regression": ("logistic_regression_model.pkl", True),
     "KNN": ("knn_model.pkl", True),
@@ -33,6 +34,23 @@ FEATURE_COLUMNS = [
 st.set_page_config(page_title="Heart Disease Classification", layout="centered")
 st.title("❤️ Heart Disease Classification App")
 st.write("Upload a **test CSV file with ground truth labels (`target`)** to evaluate models.")
+st.subheader("Sample Test Dataset")
+
+st.write(
+    "You can download a sample test dataset (with ground truth labels) "
+    "to understand the expected CSV format."
+)
+
+try:
+    with open(TEST_DATA_PATH, "rb") as f:
+        st.download_button(
+            label="Download test_data.csv",
+            data=f,
+            file_name="test_data.csv",
+            mime="text/csv"
+        )
+except FileNotFoundError:
+    st.warning("Sample test dataset not found in the repository.")
 
 # Model selection
 model_name = st.selectbox("Select Model", list(MODELS.keys()))
