@@ -21,6 +21,11 @@ The following machine learning models were implemented and evaluated:
 - Random Forest
 - XGBoost
 
+To ensure code reusability and consistency, a common `BaseModel` class was introduced.  
+This base class encapsulates shared functionality such as model training, prediction, and evaluation using standard classification metrics. Each individual model inherits from this base class and defines only model-specific initialization logic.
+
+This design avoids code duplication, improves maintainability, and ensures fair and consistent evaluation across all models.
+
 ## Evaluation Metrics
 The models were evaluated using the following metrics:
 - Accuracy
