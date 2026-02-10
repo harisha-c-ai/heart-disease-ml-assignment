@@ -1,4 +1,5 @@
 import time
+import joblib
 from sklearn.metrics import (
     accuracy_score,
     roc_auc_score,
@@ -36,3 +37,6 @@ class BaseModel:
             "mcc": matthews_corrcoef(y_test, y_pred)
         }
         return metrics
+    
+    def save_model(self, file_path):
+        joblib.dump(self.model, file_path)
