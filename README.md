@@ -35,5 +35,28 @@ The models were evaluated using the following metrics:
 - F1-Score
 - Matthews Correlation Coefficient (MCC)
 
-## Results and Observations : TODO
+## Results and Observations
 
+The performance of all implemented models was evaluated on a held-out test dataset using standard classification metrics. The results are summarized in the table below.
+
+| Model Model Name    | Accuracy | AUC   | Precision | Recall | F1-Score | MCC   |
+|---------------------|----------|-------|-----------|--------|----------|-------|
+| Logistic Regression | 0.8098   | 0.9298| 0.7619    | 0.9143 | 0.8312   | 0.6309|
+| Decision Tree       | 0.9854   | 0.9857| 1.0000    | 0.9714 | 0.9855   | 0.9712|
+| KNN                 | 0.8634   | 0.9629| 0.8738    | 0.8571 | 0.8654   | 0.7269|
+| Naive Bayes         | 0.8293   | 0.9043| 0.8070    | 0.8762 | 0.8402   | 0.6602|
+| Random Forest       | 1.0000   | 1.0000| 1.0000    | 1.0000 | 1.0000   | 1.0000|
+
+## Model-wise Observations
+
+| **ML Model Name** | **Observation about model performance** |
+|------------------|-------------------------------------------|
+| **Logistic Regression** | Logistic Regression provides a strong baseline model with high recall, indicating good ability to identify patients with heart disease. However, its lower accuracy and MCC suggest limited capability in capturing complex non-linear relationships in the data. |
+| **Decision Tree** | Decision Tree achieves very high accuracy and MCC, indicating excellent performance on the test set. However, such near-perfect results suggest a risk of overfitting, as decision trees can easily memorize training patterns. |
+| **kNN** | KNN shows balanced performance with good Accuracy, AUC, and MCC. While it generalizes better than a single Decision Tree, its Recall is slightly lower than Logistic Regression, making it less optimal when minimizing false negatives is critical. |
+| **Naive Bayes** | Naive Bayes performs reasonably well with good recall but lower AUC and MCC compared to other models. Its performance is limited by the assumption of feature independence, which may not hold for medical datasets. |
+| **Random Forest (Ensemble)** | Random Forest achieves the best performance across all evaluation metrics, demonstrating the strength of ensemble learning in capturing complex patterns. However, perfect scores should be interpreted cautiously as they may indicate optimistic evaluation or overfitting. |
+| **XGBoost (Ensemble)** | XGBoost shows excellent performance with very high accuracy, AUC, and MCC. It generalizes better than a single decision tree and effectively handles non-linear relationships, making it a strong and reliable ensemble model. |
+
+
+created with ❤️ by Harisha.
