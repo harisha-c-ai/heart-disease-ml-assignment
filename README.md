@@ -60,4 +60,21 @@ The performance of all implemented models was evaluated on a held-out test datas
 | **XGBoost (Ensemble)** | XGBoost shows excellent performance with very high accuracy, AUC, and MCC. It generalizes better than a single decision tree and effectively handles non-linear relationships, making it a strong and reliable ensemble model. |
 
 
+## Streamlit Application
+
+This project includes a Streamlit web application that allows users to evaluate trained machine learning models on test data.
+
+### How to Run the App Locally
+
+1. Clone the repository:
+```bash
+git clone https://github.com/harisha-c-ai/heart-disease-ml-assignment.git
+cd heart-disease-ml-assignment
+```
+
+```bash
+pip install -r requirements.txt
+streamlit run app.py
+```
+
 created with ❤️ by Harisha.
