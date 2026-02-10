@@ -46,6 +46,7 @@ The performance of all implemented models was evaluated on a held-out test datas
 | KNN                 | 0.8634   | 0.9629| 0.8738    | 0.8571 | 0.8654   | 0.7269|
 | Naive Bayes         | 0.8293   | 0.9043| 0.8070    | 0.8762 | 0.8402   | 0.6602|
 | Random Forest       | 1.0000   | 1.0000| 1.0000    | 1.0000 | 1.0000   | 1.0000|
+| XGBoost             | 0.9610   | 0.9900| 0.9533    | 0.9714 | 0.9623   | 0.9220|
 
 ## Model-wise Observations
 
