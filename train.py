@@ -21,6 +21,7 @@ np.random.seed(42)
 
 DATA_PATH = r'E:\MTech-Workspace\Playground\Assignments\ML\assignment2\heart.csv'
 ARTIFACTS_DIR = "artifacts"
+MODEL_DIR = "model"
 
 results_df = pd.DataFrame(columns=[
     'Model',
@@ -93,7 +94,7 @@ def main():
     X_test_scaled = scaler.transform(X_test)
 
     # Save scaler (needed for inference)
-    joblib.dump(scaler, os.path.join(ARTIFACTS_DIR, "scaler.pkl"))
+    joblib.dump(scaler, os.path.join(MODEL_DIR, "scaler.pkl"))
 
     train_samples = X_train_scaled.shape[0]       
     test_samples = X_test_scaled.shape[0]          
@@ -128,7 +129,7 @@ def main():
     )
 
     # save model
-    lr_model.save_model(os.path.join(ARTIFACTS_DIR, "logistic_regression_model.pkl"))
+    lr_model.save_model(os.path.join(MODEL_DIR, "logistic_regression_model.pkl"))
 
     # --------------------------------------------------------------
     # training decision tree model
@@ -154,7 +155,7 @@ def main():
     )
 
     # save model
-    dt_model.save_model(os.path.join(ARTIFACTS_DIR, "decision_tree_model.pkl"))
+    dt_model.save_model(os.path.join(MODEL_DIR, "decision_tree_model.pkl"))
 
     # --------------------------------------------------------------
     # training KNN model
@@ -180,7 +181,7 @@ def main():
     )
 
     # save model
-    knn_model.save_model(os.path.join(ARTIFACTS_DIR, "knn_model.pkl"))
+    knn_model.save_model(os.path.join(MODEL_DIR, "knn_model.pkl"))
 
     # --------------------------------------------------------------
     # training Gaussian Naive Bayes model
@@ -206,7 +207,7 @@ def main():
     )
 
     # save model
-    nb_model.save_model(os.path.join(ARTIFACTS_DIR, "gaussian_naive_bayes_model.pkl"))
+    nb_model.save_model(os.path.join(MODEL_DIR, "gaussian_naive_bayes_model.pkl"))
 
     # --------------------------------------------------------------
     # training Random Forest model
@@ -233,7 +234,7 @@ def main():
     )
 
     # save model
-    rf_model.save_model(os.path.join(ARTIFACTS_DIR, "random_forest_model.pkl"))
+    rf_model.save_model(os.path.join(MODEL_DIR, "random_forest_model.pkl"))
 
     # --------------------------------------------------------------
     # training XGBoost model
@@ -260,7 +261,7 @@ def main():
     )
 
     # save model
-    xgb_model.save_model(os.path.join(ARTIFACTS_DIR, "xgboost_model.pkl"))
+    xgb_model.save_model(os.path.join(MODEL_DIR, "xgboost_model.pkl"))
 
     # Print final results
     print("\nFinal Results:")
