@@ -2,6 +2,15 @@ import streamlit as st
 import pandas as pd
 import joblib
 from sklearn.metrics import classification_report
+from sklearn.metrics import (
+    accuracy_score,
+    roc_auc_score,
+    precision_score,
+    recall_score,
+    f1_score,
+    matthews_corrcoef
+)
+
 
 
 # Load artifacts
@@ -47,4 +56,25 @@ if uploaded_file:
 
         y_pred = model.predict(X)
 
-        
+
+        accuracy = accuracy_score(y_true, y_pred)
+        precision = precision_score(y_true, y_pred)
+        recall = recall_score(y_true, y_pred)
+        f1 = f1_score(y_true, y_pred)
+        roc_auc = roc_auc_score(y_true, y_pred)
+        mcc = matthews_corrcoef(y_true, y_pred)
+
+        st.subheader("Evaluation Metrics")
+        col1, col2, col3, col4, col5, col6 = st.columns(6)
+
+        col1.metric("Accuracy", f"{accuracy:.3f}")
+        col2.metric("Precision", f"{precision:.3f}")
+        col3.metric("Recall", f"{recall:.3f}")
+        col4.metric("F1-Score", f"{f1:.3f}")
+        col5.metric("ROC AUC", f"{roc_auc:.3f}")
+        col6.metric("MCC", f"{mcc:.3f}")
+
+        # Metrics
+        st.subheader("Classification Report")
+        report = classification_report(y_true, y_pred, output_dict=True)
+        st.dataframe(pd.DataFrame(report).transpose())
