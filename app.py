@@ -21,10 +21,7 @@ st.set_page_config(
 )
 st.markdown("""
 <style>     
-body {
-    background-color:#0f172a;
-    color:white;
-}
+.stApp { background-color: #0E1117; color: white; }
 
 .main-title {
     text-align:center;
@@ -79,6 +76,21 @@ FEATURE_COLUMNS = [
     "restecg", "thalach", "exang", "oldpeak",
     "slope", "ca", "thal"
 ]
+
+dark_mode = st.sidebar.toggle("Dark Mode")
+
+if dark_mode:
+    st.markdown("""
+    <style>
+        .stApp { background-color: #0E1117; color: white; }
+    </style>
+    """, unsafe_allow_html=True)
+else:
+    st.markdown("""
+    <style>
+        .stApp { background-color: white; color: black; }
+    </style>
+    """, unsafe_allow_html=True)
 
 st.sidebar.title("⚙️ Controls")
 
