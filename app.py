@@ -75,36 +75,6 @@ FEATURE_COLUMNS = [
     "slope", "ca", "thal"
 ]
 
-dark_mode = st.sidebar.toggle("Dark Mode", value=False)
-
-if dark_mode:
-    st.markdown("""
-    <style>
-        .stApp {
-            background-color: #0E1117;
-            color: white;
-        }
-        section[data-testid="stSidebar"] {
-            background-color: #1E1E2F;
-            color: white;
-        }
-    </style>
-    """, unsafe_allow_html=True)
-
-else:
-    st.markdown("""
-    <style>
-        .stApp {
-            background-color: white;
-            color: black;
-        }
-        section[data-testid="stSidebar"] {
-            background-color: #F0F2F6;
-            color: black;
-        }
-    </style>
-    """, unsafe_allow_html=True)
-
 
 st.sidebar.title("⚙️ Controls")
 
@@ -183,12 +153,13 @@ if uploaded_file:
         st.markdown("##### Confusion Matrix")
 
         cm = confusion_matrix(y_true, y_pred)
+        plt.style.use("dark_background")
         fig, ax = plt.subplots()
         sns.heatmap(
             cm,
             annot=True,
             fmt="d",
-            cmap="Blues",
+            cmap="Greens",
             xticklabels=["No Disease","Disease"],
             yticklabels=["No Disease","Disease"],
             cbar=False,
