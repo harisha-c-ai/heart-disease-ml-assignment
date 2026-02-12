@@ -36,6 +36,8 @@ The models were evaluated using the following metrics:
 - Matthews Correlation Coefficient (MCC)
 
 ## Project Structure
+
+```bash
 heart-disease-ml-assignment/
 │
 ├── app.py                           # Streamlit application for model evaluation
@@ -61,6 +63,8 @@ heart-disease-ml-assignment/
 └── artifacts/                       # Training outputs & evaluation artifacts
     ├── model_results.csv
     └── test_data.csv
+```
+
   
 
 ## Results and Observations
