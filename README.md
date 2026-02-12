@@ -35,6 +35,34 @@ The models were evaluated using the following metrics:
 - F1-Score
 - Matthews Correlation Coefficient (MCC)
 
+## Project Structure
+heart-disease-ml-assignment/
+│
+├── app.py                           # Streamlit application for model evaluation
+├── train.py                         # Script for training models
+├── requirements.txt                 # Project dependencies
+├── README.md                        # Project documentation
+│
+├── models/                          # Model implementations & saved models
+│   ├── base_model.py
+│   ├── logistic_regression.py
+│   ├── decision_tree.py
+│   ├── knn.py
+│   ├── naive_bayes_gaussian.py
+│   ├── random_forest.py
+│   ├── xgboost.py
+│   ├── logistic_regression_model.pkl
+│   ├── decision_tree_model.pkl
+│   ├── knn_model.pkl
+│   ├── gaussian_naive_bayes_model.pkl
+│   ├── random_forest_model.pkl
+│   └── xgboost_model.pkl
+│
+└── artifacts/                       # Training outputs & evaluation artifacts
+    ├── model_results.csv
+    └── test_data.csv
+  
+
 ## Results and Observations
 
 The performance of all implemented models was evaluated on a held-out test dataset using standard classification metrics. The results are summarized in the table below.
@@ -70,6 +98,13 @@ This project includes a Streamlit web application that allows users to evaluate 
 ```bash
 git clone https://github.com/harisha-c-ai/heart-disease-ml-assignment.git
 cd heart-disease-ml-assignment
+```
+
+2. Create a virtual environment and activate it:
+```bash
+python -m venv venv
+./venv/Scripts/activate  # Windows
+source venv/bin/activate  # macOS/Linux
 ```
 
 ```bash
